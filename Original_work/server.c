@@ -13,6 +13,11 @@ int main(int argument_number, char** port_number)
     if((server_socket = socket(AF_INET,SOCK_STREAM,0))==0)
     {
         printf("Socket creation failed\n");
+        exit(0);
+    }
+    else
+    {
+        printf("Socket server started \n");
     }
 
     //setsockopt(server_socket, SOL_SOCKET,SO_REUSEADDR | SO_REUSEPORT, 1,sizeof(int));
@@ -25,13 +30,20 @@ int main(int argument_number, char** port_number)
     //define address structure
     struct sockaddr_in server_addr, conn_addr;
     server_addr.sin_family = AF_INET; //sets family of the address
-    server_addr.sin_port = htons(9002); //atoi(port_number[1]);//htons(9002);  //send actual port no
+    server_addr.sin_port = htons(atoi(port_number[1])); //atoi(port_number[1]);//htons(9002);  //send actual port no
     server_addr.sin_addr.s_addr = INADDR_ANY;
+
+    struct in_addr ipAddr = server_addr.sin_addr;  //to get ipv4 address
+
+    char str[INET_ADDRSTRLEN];
+    inet_ntop( AF_INET, &ipAddr, str, INET_ADDRSTRLEN );
+    printf("Server is at IP: %s\n",str);
 
     if(bind(server_socket,(struct sockaddr*) &server_addr, sizeof(server_addr))<0)
     {
         printf("Bind error\n");
     }
+    
 
     listen(server_socket,5);  //5 connections 
 

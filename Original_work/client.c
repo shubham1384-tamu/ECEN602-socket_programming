@@ -7,7 +7,7 @@
 #include<string.h>
 
 
-int main()
+int main(int argument_number, char** argv)
 {
     int client_socket;
     if((client_socket = socket(AF_INET,SOCK_STREAM, 0))<0)  //domain=AF_INET, TCP protocol, default TCP protocol
@@ -20,7 +20,7 @@ int main()
     //address structure for the socket
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET; //sets family of the address
-    server_address.sin_port = htons(9002);//htons(9002);  //send actual port no
+    server_address.sin_port = htons(atoi(argv[1]));//htons(9002);  //send actual port no
     if (inet_pton(AF_INET, "127.0.0.1", &server_address.sin_addr) <= 0) {
         printf("Invalid address / Address not supported\n");
         return -1;
