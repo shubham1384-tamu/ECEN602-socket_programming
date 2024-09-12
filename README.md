@@ -1,4 +1,4 @@
-# ECEN602-socket_programming
+# Team 8: ECEN602-socket_programming
 ECEN 602 Machine Problem-1 by Team 8
 
 
@@ -8,6 +8,28 @@ ECEN 602 Machine Problem-1 by Team 8
 In this project, we have implemented a client server TCP socket where multiple clients can echo to the server.
 
 ![architecture](Screenshots/architecture.png)
+
+### Functions used in the Server side
+#### 1. Socket():
+ A socket descriptor is defined containing the socket family(whether IPv4 or IPv6) and socket type(TCP or UDP). In our case we have implemented a TCP socket stream and IPv4 address scheme.
+
+#### 2. bind():
+Binds the socket to the specified IP address and port number to listen
+
+#### 3. listen():
+Listens for clients at the specified IP address and port.
+
+#### 4. accept():
+The server waits for client connection to complete
+
+#### 5. read():
+This function reads a line of text from the client and stores them in a buffer with a specified size. read() is also used to get the TCP_FIN packet from the client.
+
+#### 6. send():
+This function writes data buffer from the client to the server. 
+
+#### 7. close():
+Closes the client/server instance. When the client closes the connection, the TCP_FIN packet is received by the server.
 
 
 ## Steps to run the code
