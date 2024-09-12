@@ -81,7 +81,7 @@ int main(int argument_number, char** port_number)
         int valread=read(client_socket, read_char, sizeof(read_char));
         if(valread==0)
         {
-        printf("Client disconnected\n");
+        printf("TCP_FIN packet received. Client disconnected\n");
         close(client_socket);
         printf("Exiting child process\n");
         number_of_connections-=1;
