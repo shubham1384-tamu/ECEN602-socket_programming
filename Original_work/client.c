@@ -7,6 +7,7 @@
 #include<string.h>
 
 
+
 int main(int argument_number, char** argv)
 {
     int client_socket;
@@ -20,8 +21,10 @@ int main(int argument_number, char** argv)
     //address structure for the socket
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET; //sets family of the address
-    server_address.sin_port = htons(atoi(argv[1]));//htons(9002);  //send actual port no
-    if (inet_pton(AF_INET, "127.0.0.1", &server_address.sin_addr) <= 0) {
+    server_address.sin_port = htons(atoi(argv[2])); //send actual port no
+
+    // send input IP Adress
+    if (inet_pton(AF_INET, argv[1], &server_address.sin_addr) <= 0) {
         printf("Invalid address / Address not supported\n");
         return -1;
     }
@@ -41,22 +44,31 @@ int main(int argument_number, char** argv)
 while(1)
 {
     char write[1024];
-    //scanf("%s",write);
+    //Handle the EOF (CTRL+D) (Test Case#);
     if(fgets(write,sizeof(write),stdin)==NULL)
     {
-        send(client_socket, write, strlen(write),0);
+        printf("Exiting... Closing the Client socket Due to EOF.\n");
+        //send(client_socket, write, strlen(write),0);
         break;
     }
-    else
-    send(client_socket, write, strlen(write),0);
-    //char* hello = "Hello from client";
     
+    
+    //Check if the user wants to terminate "exit" (Handling test Case#4)
+    // Remove the newline character from the input (if present)
+    write[strcspn(write, "\n")] = '\0';
+    
+    if (strcmp(write, "exit") == 0) {
+    
+        printf("Closing the Client socket due to Termination by user.\n");
+        break;  // Exit the loop
+    }
+    // send packet to server if there is EOF or Exit
+    send(client_socket, write, strlen(write),0);
 
-
-    //echoed signal read
-    char echo_read[1024];
+    //Now listen for receieving Echo from server
+    char echo_read[1024]={0};// allocating 0 to the memory indexes adress 
     int valread=read(client_socket, echo_read, 1024);
-    printf("Read from Server: %s\n",echo_read);
+    printf("Recieved from Server: %s\n",echo_read);
     //printf("%s",write); 
 }
 

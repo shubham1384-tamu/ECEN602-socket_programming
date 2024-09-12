@@ -33,6 +33,27 @@ Client side
 
 3. line with no characters and EOF
 
+Server side
+![Test Case 3 Server screenshot](Screenshots/TS3_server.png)
+
+Client side
+![Test Case 3 client screenshot](Screenshots/TS3_client.png)
+
 4. client terminated after entering text
 
+Server side
+![Test Case 4 server screenshot](Screenshots/TS4_server.png)
+
+Client side
+![Test Case 4 client screenshot](Screenshots/TS4_client.png)
+
 5. three clients connected to the server.
+
+Server side
+![Test Case 5 server screenshot](Screenshots/TS5_server.png)
+
+
+Client side
+![Test Case 5 client#1 screenshot](Screenshots/TS5_client1.png)
+![Test Case 5 client#2 screenshot](Screenshots/TS5_client2.png)
+![Test Case 5 client#3 screenshot](Screenshots/TS5_client3.png)
