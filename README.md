@@ -1,6 +1,20 @@
 # ECEN602-socket_programming
 ECEN 602 Machine Problem-1 by Team 8
 
+
+## Socket programming introduction and architecture
+
+
+In this project, we have implemented a client server TCP socket where multiple clients can echo to the server.
+
+![architecture](Screenshots/architecture.png)
+
+
+## Steps to run the code
+1. make all
+2. make echos PORT="PORT NUMBER"
+3. make echo IP="IP ADDRESS" PORT="PORT NUMBER" in another terminal
+
 ## Contribution
 
 ## Test Case Execution
