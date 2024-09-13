@@ -114,5 +114,5 @@ Client side terminals
 3. Contributed to documentation of code.
 
 ### Ibrahim Shahbaz(UIN: 236001615)
-1. Developed Client code.
+1. Developed Client code and documented it.
 2. Worked on handling test cases.
