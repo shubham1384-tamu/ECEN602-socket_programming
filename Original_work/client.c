@@ -7,7 +7,7 @@
 #include<string.h>
 
 
-
+// Main function can take Server IP and Port number as inputs
 int main(int argument_number, char** argv)
 {
     int client_socket;
