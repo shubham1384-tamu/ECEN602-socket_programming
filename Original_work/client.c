@@ -17,8 +17,7 @@ int main(int argument_number, char** argv)
         return 0;
     }
 
-    //netinet
-    //address structure for the socket
+    //determine address structure for the socket
     struct sockaddr_in server_address;
     server_address.sin_family = AF_INET; //sets family of the address
     server_address.sin_port = htons(atoi(argv[2])); //send actual port no
@@ -29,7 +28,6 @@ int main(int argument_number, char** argv)
         return -1;
     }
     
-    //server_address.sin_addr.s_addr = INADDR_ANY;  // connect to localhost
 
     if(connect(client_socket, (struct sockaddr *) &server_address, sizeof(server_address))<0)
     {

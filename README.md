@@ -112,3 +112,7 @@ Client side terminals
 1. Developed server code.
 2. Added capabilitied to handle multiple clients.
 3. Contributed to documentation of code.
+
+### Ibrahim Shahbaz(UIN: 236001615)
+1. Developed Client code.
+2. Worked on handling test cases.
