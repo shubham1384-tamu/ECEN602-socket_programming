@@ -79,6 +79,7 @@ int main(int argument_number, char** port_number)
         {
         char read_char[BUFFER_SIZE]={0};
         int valread=read(client_socket, read_char, sizeof(read_char));
+        printf("Number of characters read = %d\n",valread);
         if(valread==0)
         {
         printf("TCP_FIN packet received. Client disconnected\n");
@@ -88,7 +89,7 @@ int main(int argument_number, char** port_number)
         exit(0);
         }
         // print the data read
-        printf("Read from client: %s\n",read_char);
+        printf("Read from client %d: %s\n",number_of_connections,read_char);
 
         //char write_back[1024];
         send(client_socket, read_char, strlen(read_char),0);

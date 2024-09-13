@@ -13,12 +13,12 @@ echo: client.out
 	./client.out $(SERVER_ADDR) $(PORT) 
 
 #for gcc server.c -o server.out
-server.out: server.c
-	$(CC) $(CFLAGS) -o server.out server.c
+server.out: GPT_server.c
+	$(CC) $(CFLAGS) -o server.out GPT_server.c
 
 #for gcc client.c -o client.out
-client.out: client.c
-	$(CC) $(CFLAGS) -o client.out client.c
+client.out: GPT_client.c
+	$(CC) $(CFLAGS) -o client.out GPT_client.c
 
 # for Make clean
 clean:
